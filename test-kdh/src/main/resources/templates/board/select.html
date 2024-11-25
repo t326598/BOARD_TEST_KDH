@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 조회</title>
+</head>
+<body>
+    <h1>게시글 조회</h1>
+        <table border="1">
+            <tr>
+                <form action="update" method="get">
+                    <input type="hidden" name="no" id="no" th:value="${board.no}">
+                <th><label> 제목 : </label> <label id="writer" th:text="${board.title}"></label>
+
+                <td><label> 작성자 : </label> <label  name="writer" id="writer" th:text="${board.writer}"></td>
+            </tr>
+                <td colspan="2"><textarea rows="5" cols="40"  name="content" id="content" th:text="${board.content}" readonly style="resize: none;"></textarea></td>
+                    
+            <button type="submit" value="수정">수정</button>
+            <button type="button" onclick="location.href='/board/list'" >목록</button>
+        </form>
+        </table>
+
+    
+</body>
+</html>

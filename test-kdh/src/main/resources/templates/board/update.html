@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 수정</title>
+</head>
+<body>
+    <h1>게시글 수정</h1>
+    <form action="update" method="post" id="form">
+        <input type="hidden" name="no" th:value="${board.no}">
+        <table border="1">
+            <tr>
+                <th><label> 제목 : </label> <input type="text" name="title" id="title" th:value="${board.title}"></ttd>
+
+                <td><label> 작성자 : </label> <input type="text" name="writer" id="writer" th:value="${board.writer}"></td>
+            </tr>
+                <td colspan="2"><textarea rows="5" cols="40"name="content" th:text="${board.content}"  style="resize: none;"></textarea></td>
+                    
+            <button type="submit" >수정</button>
+            <button type="button" onclick="remove()">삭제</button>
+            <button type="button" onclick="location.href='/board/list'" >목록</button>
+        </table>
+
+    </form>
+    <script>
+        const form = document.getElementById('form')
+
+    function remove(){
+    if(!confirm('정말로 삭제하시겠습니까?'))
+    return
+    form.action = '/board/delete'   // action 속성 변경
+    form.submit()    
+    }   
+
+ 
+
+    </script>
+
+</body>
+</html>
